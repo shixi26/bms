@@ -10,7 +10,7 @@
 <body>
 	<div align="center">
 		<h2>Server Problem</h2>
-		<img src="${contextPath }/resources/image/500.PNG" alt="500에러 이미지"><br>
+		<img src="${contextPath }/resources/image/500-internal-server-error.svg" alt="500에러 이미지"><br>
 		<h4>관리자에게 연락주세요.</h4>
 		<h4>관리자 이메일 : spring@gmail.com</h4>
 	</div>

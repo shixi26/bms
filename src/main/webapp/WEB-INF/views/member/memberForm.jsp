@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+
 <script>
 
 	$().ready(function() {
@@ -39,6 +40,26 @@
 		 });	
 		
 	});
+</script>
+<script>
+	$(function(){
+	    $('#memberPw').keyup(function(){
+	      $('#chkNotice').html('');
+	    });
+	
+	    $('#memberPwChk').keyup(function(){
+	
+	        if($('#memberPw').val() != $('#memberPwChk').val()){
+	          $('#chkNotice').html('비밀번호 일치하지 않음<br><br>');
+	          $('#chkNotice').attr('color', '#f82a2aa3');
+	        } else{
+	          $('#chkNotice').html('비밀번호 일치함<br><br>');
+	          $('#chkNotice').attr('color', '#199894b3');
+	        }
+	
+	    });
+	});
+
 </script>
 <script>
 	function execDaumPostcode() {
@@ -95,36 +116,37 @@
 		</colgroup>
 		<tr>
 			<td>
-				<label for="memberId">아이디</label>
+				<label for="memberId"><i>*</i>아이디</label>
 			</td>
 			<td>
 	            <input type="text" class="form-control" style="display:inline; width:300px;" 
-	            	name="memberId"  id="memberId" maxlength="15" placeholder="아이디를 입력하세요." />
+	            	name="memberId"  id="memberId" maxlength="15" placeholder="아이디를 입력하세요." required />
 	        	&emsp;<input type="button" id="btnOverlapped" class="btn btn-primary btn-sm" value="중복확인" />
 	        </td>
 	    </tr>
         <tr>
 	        <td>
-	        	 <label class="small mb-1" for="memberPw">비밀번호</label>
+	        	 <label class="small mb-1" for="memberPw"><i>*</i>비밀번호</label>
 	        </td>
 	        <td>
-	        	<input class="form-control" id="memberPw" name="memberPw" type="password" placeholder="비밀번호를 입력하세요." />
+	        	<input class="form-control" id="memberPw" name="memberPw" type="password" placeholder="비밀번호를 입력하세요." required />
 	        </td>
         </tr>
         <tr>
 	        <td>
-	        	 <label class="small mb-1">비밀번호 확인</label>
+	        	 <label class="small mb-1"><i>*</i>비밀번호 확인</label>
 	        </td>
 	        <td>
-	        	<input class="form-control" type="password" placeholder="비밀번호를 입력하세요." />
+	        	<input class="form-control" id="memberPwChk" type="password" placeholder="비밀번호를 입력하세요." required/>
+	        	<font id="chkNotice" size="2"/>
 	        </td>
         </tr>         
         <tr>
 	        <td>
-	        	<label class="small mb-1" for="memberName">이름</label>
+	        	<label class="small mb-1" for="memberName"><i>*</i>이름</label>
 	        </td>
 	        <td>
-	        	<input type="text" class="form-control" name="memberName"  id="memberName" maxlength="15" placeholder="이름을 입력하세요." />
+	        	<input type="text" class="form-control" name="memberName"  id="memberName" maxlength="15" placeholder="이름을 입력하세요." required/>
 	        </td>
         </tr>                
 	    <tr>
@@ -140,14 +162,14 @@
         </tr>                              
         <tr>
 	        <td>
-	        	<label class="small mb-1" for="memberBirthY">생년월일</label>
+	        	<label class="small mb-1" for="memberBirthY"><i>*</i>생년월일</label>
 	        </td>
 	        <td>
-                <select class="form-control" id="memberBirthY" name="memberBirthY" style="display:inline; width:70px; padding:0" >
+                <select class="form-control" id="memberBirthY" name="memberBirthY" style="display:inline; width:70px; padding:0" required >
 				<c:forEach var="year" begin="1" end="100">
 					<c:choose>
 						<c:when test="${year==80}">
-							<option value="${1921+year}" selected>${ 1921+year}/option>
+							<option value="${1921+year}" selected>${ 1921+year}</option>
 						</c:when>
 						<c:otherwise>
 							<option value="${1921+year}">${ 1921+year}</option>
@@ -155,7 +177,7 @@
 					</c:choose>
 				</c:forEach>
 				</select> 년 
-				<select class="form-control" name="memberBirthM" style="display:inline; width:50px; padding:0">
+				<select class="form-control" name="memberBirthM" style="display:inline; width:50px; padding:0" required>
 				  <c:forEach var="month" begin="1" end="12">
 				    <c:choose>
 				        <c:when test="${month==5}">
@@ -167,7 +189,7 @@
 					</c:choose>
 				  </c:forEach>
 				</select> 월  
-				<select class="form-control" name="memberBirthD" style="display:inline; width:50px; padding:0">
+				<select class="form-control" name="memberBirthD" style="display:inline; width:50px; padding:0" required>
 				<c:forEach var="day" begin="1" end="31">
 				   <c:choose>
 					    <c:when test="${day==10}">
@@ -220,7 +242,7 @@
         </tr>                         
         <tr>
 	        <td>
-	        	<label class="small mb-1" for="hp1">핸드폰 번호</label>
+	        	<label class="small mb-1" for="hp1"><i>*</i>핸드폰 번호</label>
 	        </td>
 	        <td>
 	        	<select class="form-control" id="hp1" name="hp1" style="display:inline; width:70px; padding:0">
@@ -232,19 +254,19 @@
 					<option value="018">018</option>
 					<option value="019">019</option>
 				</select> - 
-				<input class="form-control"  size="10px"  type="text" name="hp2" style="display:inline; width:100px; padding:0"> - 
-				<input class="form-control"  size="10px"  type="text"name="hp3" style="display:inline; width:100px; padding:0"><br><br>
+				<input class="form-control"  size="10px"  type="text" name="hp2" style="display:inline; width:100px; padding:0" required> - 
+				<input class="form-control"  size="10px"  type="text"name="hp3" style="display:inline; width:100px; padding:0"required><br><br>
 				<input class="custom-control-input" id="smsstsYn" type="checkbox" name="smsstsYn"  value="Y" checked/>
                 <label for="smsstsYn" >BMS에서 발송하는 SMS 소식을 수신합니다.</label>
 	        </td>
         </tr>                         
         <tr>
 	        <td>
-	        	<label class="small mb-1" for="email1">이메일</label>
+	        	<label class="small mb-1" for="email1"><i>*</i>이메일</label>
 	        </td>
 	        <td>
-	        	<input class="form-control"  size="10px"  type="text" id="email1" name="email1" style="display:inline; width:100px; padding:0"> @ 
-					<input class="form-control"  size="10px"  type="text" id="email2" name="email2" style="display:inline; width:100px; padding:0">
+	        	<input class="form-control"  size="10px"  type="text" id="email1" name="email1" style="display:inline; width:100px; padding:0" required> @ 
+					<input class="form-control"  size="10px"  type="text" id="email2" name="email2" style="display:inline; width:100px; padding:0" required>
 					<select class="form-control" id="select_email" name="email3" style="display:inline; width:100px; padding:0">
 						 <option value="none" selected>직접입력</option>
 						 <option value="gmail.com">gmail.com</option>
@@ -258,10 +280,10 @@
         </tr>                              
         <tr>
 	        <td>
-	        	<label class="small mb-1" for="zipcode">주소</label>
+	        	<label class="small mb-1" for="zipcode"><i>*</i>주소</label>
 	        </td>
 	        <td>
-	        	<input class="form-control"  size="70px"  type="text" placeholder="우편번호 입력" id="zipcode" name="zipcode" style="display:inline; width:150px; padding:0">
+	        	<input class="form-control"  size="70px"  type="text" placeholder="우편번호 입력" id="zipcode" name="zipcode" style="display:inline; width:150px; padding:0" required>
                 <input type="button" class="btn btn-outline-primary btn-sm" onclick="javascript:execDaumPostcode()" value="검색">
                 <div></div><br>
                 도로명 주소 : <input type="text" class="form-control" id="roadAddress"  name="roadAddress" > <br>
