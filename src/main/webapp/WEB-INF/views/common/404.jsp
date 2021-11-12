@@ -11,7 +11,7 @@
 	<div align="center">
 		<h2>Page Not Found</h2>
 		<img src="${contextPath }/resources/image/404-error.svg" alt="404에러 이미지">
-		<h4>페이지를 찾을 수 없습니다.</h4>
+		<h4>페이지를 찾을 수 없습니다.  </h4>
 	</div>
 </body>
 </html>
