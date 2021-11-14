@@ -3,7 +3,6 @@ package com.bms.member.controller;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,34 +23,34 @@ import com.bms.member.service.MemberService;
 @RequestMapping(value="/member")
 public class MemberController {
 	
+	
 	@Autowired
 	private MemberService memberService;
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
+	// 로그인 첫 화면 요청 메소드
 	
 	@RequestMapping(value="/login.do" , method = RequestMethod.POST)
 	public ModelAndView login(@RequestParam Map<String, String> loginMap, HttpServletRequest request) throws Exception {
-			
-		ModelAndView mv = new ModelAndView();
-		
-		MemberDto memberDto = memberService.login(loginMap);		
-		
-		if (memberDto != null && memberDto.getDelYn().equals("N")) { 	
-			HttpSession session = request.getSession();		
-			session.setAttribute("isLogOn" , true);			
-			session.setAttribute("memberInfo" , memberDto);		
-			session.setMaxInactiveInterval(60 * 30);
-			mv.setViewName("redirect:/main/main.do");	
-		}
-		else { 
-			mv.addObject("invalidMember", true);
-			mv.setViewName("/member/loginForm");
-		}
-		return mv;
-		
+	
+	 ModelAndView mv = new ModelAndView();
+	 
+	 MemberDto memberDto = memberService.login(loginMap);
+	 
+	 if (memberDto != null && memberDto.getDelYn().equals("N")) { HttpSession
+	 session = request.getSession(); session.setAttribute("isLogOn" , true);
+	 session.setAttribute("memberInfo" , memberDto);
+	 session.setMaxInactiveInterval(60 * 30);
+	 mv.setViewName("redirect:/main/main.do"); } else {
+	 mv.addObject("invalidMember", true); mv.setViewName("/member/loginForm"); }
+	 return mv;
+	 
+	
+	
 	}
+
 	
 	
 	@RequestMapping(value="/logout.do" , method = RequestMethod.GET)
@@ -109,5 +107,6 @@ public class MemberController {
 	public ModelAndView memberForm() throws Exception {
 		return new ModelAndView("/member/memberForm");
 	}
+
 
 }

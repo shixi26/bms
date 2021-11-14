@@ -10,31 +10,32 @@
 	<link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
 	<script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
-	<title>Login</title>
-<c:if test='${invalidMember eq true}'>
-	<script>
-		$().ready(function(){
-			alert("아이디와 비밀번호를 확인하세요.");
-		});
-	</script>
-</c:if>
+	
+	<!-- 로그인정보일치확인 -->
+	<c:if test='${invalidMember eq true}'>
+		<script>
+			$().ready(function(){
+				alert("아이디와 비밀번호를 확인하세요.");
+			});
+		</script>
+	</c:if>
 </head>
-<body >
-        <div id="layoutAuthentication">
-            <div id="layoutAuthentication_content">
-                <main>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11">
-                                <!-- Social login form-->
+<body>
+	<div id="layoutAuthentication">
+    	<div id="layoutAuthentication_content">
+        	<main>
+                <div class="container">
+                	<div class="row justify-content-center">
+                         <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11">
+                         <!-- Social login form-->
                                 <div class="card my-5">
                                     <div class="card-body p-5 text-center">
                                         <div class="h3 font-weight-light mb-3">로그인 하기</div>
                                         <!-- Social login links-->
-                                        <a class="btn btn-icon btn-facebook mx-1" href="#!"><i class="fab fa-facebook-f fa-fw fa-sm"></i></a>
-                                        <a class="btn btn-icon btn-github mx-1" href="#!"><i class="fab fa-github fa-fw fa-sm"></i></a>
-                                        <a class="btn btn-icon btn-google mx-1" href="#!"><i class="fab fa-google fa-fw fa-sm"></i></a>
-                                        <a class="btn btn-icon btn-twitter mx-1" href="#!"><i class="fab fa-twitter fa-fw fa-sm"></i></a>
+                                        <!-- naver -->
+                                        <a href="{contextPath }/login_naver.do"><img width="50" height="50" src="${contextPath }/resources/image/btnD_icon_circle.png" /></a>
+                                        <!-- google -->
+                                        <a href="{contextPath }/login_google.do"><img /></a>
                                     </div>
                                     <hr class="my-0" />
                                     <div class="card-body p-5">
@@ -43,12 +44,12 @@
                                             <!-- Form Group (아이디)-->
                                             <div class="form-group">
                                                 <label class="text-gray-600 small" for="memberId">아이디</label>
-                                                <input class="form-control form-control-solid" type="text" placeholder="아이디를 입력하세요." />
+                                                <input class="form-control form-control-solid" id="memberId" name="memberId" type="text" placeholder="아이디를 입력하세요." />
                                             </div>
                                             <!-- Form Group (비밀번호)-->
                                             <div class="form-group">
                                                 <label class="text-gray-600 small" for="memberPw">비밀번호</label>
-                                                <input class="form-control form-control-solid" type="password" placeholder="비밀번호를입력하세요." aria-label="Password" aria-describedby="passwordExample" />
+                                                <input class="form-control form-control-solid" id="memberPw" name="memberPw" type="password" placeholder="비밀번호를입력하세요." />
                                             </div>
                                             <!-- Form Group (비밀번호찾기)-->
                                             <div class="form-group"><a class="small" href="auth-password-social.html">비밀번호찾기</a></div>
