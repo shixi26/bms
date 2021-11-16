@@ -26,16 +26,16 @@
         	<main>
                 <div class="container">
                 	<div class="row justify-content-center">
-                         <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11">
+                         <div>
                          <!-- Social login form-->
                                 <div class="card my-5">
                                     <div class="card-body p-5 text-center">
                                         <div class="h3 font-weight-light mb-3">로그인 하기</div>
                                         <!-- Social login links-->
                                         <!-- naver -->
-                                        <a href="{contextPath }/login_naver.do"><img width="50" height="50" src="${contextPath }/resources/image/btnD_icon_circle.png" /></a>
+                                        <a href="${contextPath }/auth/GOOGLE"><img width="50" height="50" src="${contextPath }/resources/image/btnD_icon_circle.png" /></a>
                                         <!-- google -->
-                                        <a href="{contextPath }/login_google.do"><img /></a>
+                                        <a href="${contextPath }/auth/GOOGLE"><img /></a>
                                     </div>
                                     <hr class="my-0" />
                                     <div class="card-body p-5">
