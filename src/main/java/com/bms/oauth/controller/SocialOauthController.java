@@ -33,7 +33,7 @@ public class SocialOauthController {
     public void socialLoginType(
             @PathVariable(name = "socialLoginType") SocialLoginType socialLoginType) {
     	System.out.println(socialLoginType);
-        //log.info(">> 사용자로부터 SNS 로그인 요청을 받음 :: {} Social Login", socialLoginType);
+        log.info(">> 사용자로부터 SNS 로그인 요청을 받음 :: {} Social Login", socialLoginType);
         oauthService.request(socialLoginType);
     }
 
