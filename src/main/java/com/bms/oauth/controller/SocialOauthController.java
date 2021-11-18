@@ -1,20 +1,22 @@
 package com.bms.oauth.controller;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.bms.oauth.helper.SocialLoginType;
 import com.bms.oauth.service.OauthService;
 
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.web.bind.annotation.*;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @CrossOrigin
 @RequiredArgsConstructor
-@RequestMapping(value = "/auth")
+@RequestMapping(value = "/oauth")
 @Slf4j
 public class SocialOauthController {
     private OauthService oauthService;
@@ -25,10 +27,6 @@ public class SocialOauthController {
      * @param socialLoginType (GOOGLE, FACEBOOK, NAVER, KAKAO)
      */
     
-    @RequestMapping(value="test.do")
-    public void test(@RequestParam Map<String, String> dateMap , HttpServletRequest request) throws Exception {
-    	System.out.println("hello");
-    }
     @GetMapping(value = "/{socialLoginType}")
     public void socialLoginType(
             @PathVariable(name = "socialLoginType") SocialLoginType socialLoginType) {

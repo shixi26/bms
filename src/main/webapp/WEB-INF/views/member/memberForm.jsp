@@ -138,7 +138,7 @@
 	        </td>
 	        <td>
 	        	<input class="form-control" id="memberPwChk" type="password" placeholder="비밀번호를 입력하세요." required/>
-	        	<font id="chkNotice" size="2"/>
+	        	<font id="chkNotice" size="2"></font>
 	        </td>
         </tr>         
         <tr>
@@ -154,10 +154,14 @@
 	        	<label for="g1">성별</label>
 	        </td>
 	        <td>
-	        	<input class="custom-control-input" type="radio" id="g1" name="memberGender" value="101" checked />
-				<label class="custom-control-label" for="g1">남성</label>&emsp;&emsp;&emsp;
-				<input class="custom-control-input" type="radio" id="g2" name="memberGender" value="102" />
-				<label class="custom-control-label" for="g2">여성</label>
+				<div class="custom-control custom-radio" style="display:inline;">
+					<input class="custom-control-input" type="radio" id="g1" name="memberGender" value="101" checked />
+					<label class="custom-control-label" for="g1">남성</label>
+				</div>  
+				<div class="custom-control custom-radio" style="display:inline;">
+					<input class="custom-control-input" type="radio" id="g2" name="memberGender" value="102" />
+					<label class="custom-control-label" for="g2">여성</label>
+	            </div>  
 	        </td>
         </tr>                              
         <tr>
@@ -256,8 +260,10 @@
 				</select> - 
 				<input class="form-control"  size="10px"  type="text" name="hp2" style="display:inline; width:100px; padding:0" required> - 
 				<input class="form-control"  size="10px"  type="text"name="hp3" style="display:inline; width:100px; padding:0"required><br><br>
-				<input class="custom-control-input" id="smsstsYn" type="checkbox" name="smsstsYn"  value="Y" checked/>
-                <label for="smsstsYn" >BMS에서 발송하는 SMS 소식을 수신합니다.</label>
+				<div class="custom-control custom-control-solid custom-checkbox">
+					<input class="custom-control-input small" id="smsstsYn" type="checkbox" name="smsstsYn"  value="Y" checked/>
+                	<label class="custom-control-label mr-3" for="smsstsYn" >BMS에서 발송하는 SMS 소식을 수신합니다.</label>
+                </div>
 	        </td>
         </tr>                         
         <tr>
@@ -274,8 +280,10 @@
 						 <option value="daum.net">daum.net</option>
 						 <option value="nate.com">nate.com</option>
 					</select><br><br>
-                    <input class="custom-control-input" id="emailstsYn" type="checkbox" name="emailstsYn"  value="Y" checked/>
-                    <label for="emailstsYn">BMS에서 발송하는 E-mail을 수신합니다.</label>
+				<div class="custom-control custom-control-solid custom-checkbox">
+					<input class="custom-control-input small" id="emailstsYn" type="checkbox" name="emailstsYn"  value="Y" checked/>
+                	<label class="custom-control-label mr-3" for="emailstsYn" >BMS에서 발송하는 E-mail을 수신합니다.</label>
+                </div>
 	        </td>
         </tr>                              
         <tr>

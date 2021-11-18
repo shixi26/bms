@@ -33,9 +33,11 @@
                                         <div class="h3 font-weight-light mb-3">로그인 하기</div>
                                         <!-- Social login links-->
                                         <!-- naver -->
-                                        <a href="${contextPath }/auth/GOOGLE"><img width="50" height="50" src="${contextPath }/resources/image/btnD_icon_circle.png" /></a>
+                                        <a href="${contextPath }/oauth/NAVER"><img width="50" height="50" src="${contextPath }/resources/image/btnG_icon_square.png" /></a>
                                         <!-- google -->
-                                        <a href="${contextPath }/auth/GOOGLE"><img /></a>
+                                        <a href="${contextPath }/oauth/GOOGLE"><img width="55" height="55" src="${contextPath }/resources/image/btn_google_light_pressed_ios.svg" /></a>
+                                        <!-- kakao -->
+                                        <a href="${contextPath }/oauth/KAKAO"><img width="50" height="50" src="${contextPath }/resources/image/kakaolink_btn_medium_ov.png" /></a>
                                     </div>
                                     <hr class="my-0" />
                                     <div class="card-body p-5">
