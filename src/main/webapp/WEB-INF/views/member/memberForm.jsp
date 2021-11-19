@@ -40,8 +40,7 @@
 		 });	
 		
 	});
-</script>
-<script>
+
 	$(function(){
 	    $('#memberPw').keyup(function(){
 	      $('#chkNotice').html('');
@@ -60,8 +59,6 @@
 	    });
 	});
 
-</script>
-<script>
 	function execDaumPostcode() {
 	    new daum.Postcode({
 	        oncomplete: function(data) {
@@ -166,10 +163,10 @@
         </tr>                              
         <tr>
 	        <td>
-	        	<label class="small mb-1" for="memberBirthY"><i>*</i>생년월일</label>
+	        	<label class="small mb-1" for="memberBirthY">생년월일</label>
 	        </td>
 	        <td>
-                <select class="form-control" id="memberBirthY" name="memberBirthY" style="display:inline; width:70px; padding:0" required >
+                <select class="form-control" id="memberBirthY" name="memberBirthY" style="display:inline; width:70px; padding:0" >
 				<c:forEach var="year" begin="1" end="100">
 					<c:choose>
 						<c:when test="${year==80}">
@@ -268,11 +265,11 @@
         </tr>                         
         <tr>
 	        <td>
-	        	<label class="small mb-1" for="email1"><i>*</i>이메일</label>
+	        	<label class="small mb-1" for="email1">이메일</label>
 	        </td>
 	        <td>
-	        	<input class="form-control"  size="10px"  type="text" id="email1" name="email1" style="display:inline; width:100px; padding:0" required> @ 
-					<input class="form-control"  size="10px"  type="text" id="email2" name="email2" style="display:inline; width:100px; padding:0" required>
+	        	<input class="form-control"  size="10px"  type="text" id="email1" name="email1" style="display:inline; width:100px; padding:0"> @ 
+					<input class="form-control"  size="10px"  type="text" id="email2" name="email2" style="display:inline; width:100px; padding:0">
 					<select class="form-control" id="select_email" name="email3" style="display:inline; width:100px; padding:0">
 						 <option value="none" selected>직접입력</option>
 						 <option value="gmail.com">gmail.com</option>
@@ -288,10 +285,10 @@
         </tr>                              
         <tr>
 	        <td>
-	        	<label class="small mb-1" for="zipcode"><i>*</i>주소</label>
+	        	<label class="small mb-1" for="zipcode">주소</label>
 	        </td>
 	        <td>
-	        	<input class="form-control"  size="70px"  type="text" placeholder="우편번호 입력" id="zipcode" name="zipcode" style="display:inline; width:150px; padding:0" required>
+	        	<input class="form-control"  size="70px"  type="text" placeholder="우편번호 입력" id="zipcode" name="zipcode" style="display:inline; width:150px; padding:0">
                 <input type="button" class="btn btn-outline-primary btn-sm" onclick="javascript:execDaumPostcode()" value="검색">
                 <div></div><br>
                 도로명 주소 : <input type="text" class="form-control" id="roadAddress"  name="roadAddress" > <br>
