@@ -11,11 +11,9 @@
         <meta name="author" content="" />
         <link href="${contextPath }/resources/css/styles.css" rel="stylesheet" type="text/css"/>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
-        <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
     </head>
     
-	<body class="nav-fixed">
+	<body>
 		<nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
 			<a class="navbar-brand" href="${contextPath}/main/main.do">Book Management System</a>
 			<!-- 검색기능 -->
@@ -42,6 +40,7 @@
 				   <li><a href="${contextPath}/member/memberForm.do">회원가입</a></li> 
 				</c:otherwise>
 				</c:choose>
+				</ul>
 		</nav>
 	</body>
 </html>

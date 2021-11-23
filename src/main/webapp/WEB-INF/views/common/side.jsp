@@ -16,32 +16,42 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
     </head>
 <body>
-	<div id="layoutSidenav">
-		<div id="layoutSidenav_nav">
-			<nav class="sidenav shadow-right sidenav-light">
+	<nav class="sidenav shadow-right sidenav-light">
 		 <ul>
 		  <c:choose>
 			<c:when test="${sideMenu == 'adminMode'}">
-			   <li>
-					<h3>주요기능</h3>
-					<ul>
-						<li><a href="${contextPath}/admin/member/adminMemberMain.do">회원 관리</a></li>
-						<li><a href="${contextPath}/admin/goods/adminGoodsMain.do">상품 관리</a></li>
-						<li><a href="${contextPath}/admin/order/adminOrderMain.do">주문 관리</a></li>
-					</ul>
-				</li>
-				<br><br><br>
+				<div class="sidenav-menu">
+					<div class="nav accordion" id="accordionSidenav">
+				       <!-- Sidenav Menu Heading (주요기능)-->
+	                   <div class="sidenav-menu-heading">주요기능</div>
+							<a class="nav-link collapsed" href="${contextPath}/admin/member/adminMemberMain.do">
+	                            회원관리
+	                        </a>
+							<a class="nav-link collapsed" href="${contextPath}/admin/goods/adminGoodsMain.do">
+	                            상품관리
+	                        </a>
+							<a class="nav-link collapsed" href="${contextPath}/admin/order/adminOrderMain.do">
+	                            주문관리
+	                        </a>
+						</div>
+					</div>
 			</c:when>
 			<c:when test="${sideMenu == 'myPage'}">
-				<li>
-					<h3>정보내역</h3>
-					<ul>
-						<li><a href="${contextPath}/mypage/listMyOrderHistory.do">주문내역 조회</a></li>
-						<li><a href="${contextPath}/mypage/myDetailInfo.do">내 정보 수정</a></li>
-						<li><a href="${contextPath}/main/main.do">메인화면으로 이동</a></li>
-					</ul>
-				</li>
-				<br><br><br>
+				<div class="sidenav-menu">
+					<div class="nav accordion" id="accordionSidenav">
+				       <!-- Sidenav Menu Heading (정보내역)-->
+	                   <div class="sidenav-menu-heading">정보내역</div>
+							<a class="nav-link collapsed" href="${contextPath}/mypage/listMyOrderHistory.do">
+	                            주문내역 조회
+	                        </a>
+							<a class="nav-link collapsed" href="${contextPath}/mypage/myDetailInfo.do">
+	                            내 정보 수정
+	                        </a>
+							<a class="nav-link collapsed" href="${contextPath}/main/main.do">
+	                            메인화면으로 이동
+	                        </a>
+						</div>
+					</div>
 			</c:when>
 			<c:otherwise>
 				<div class="sidenav-menu">
@@ -49,19 +59,13 @@
 				       <!-- Sidenav Menu Heading (카테고리)-->
 	                   <div class="sidenav-menu-heading">카테고리</div>
 							<a class="nav-link collapsed" href="${contextPath}/main/main.do?id=1" >
-	                            <div class="nav-link-icon"><i data-feather="activity"></i></div>
 	                            베스트셀러
-	                        	<div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 	                        </a>
 							<a class="nav-link collapsed" href="${contextPath}/main/main.do?id=2" >
-	                            <div class="nav-link-icon"><i data-feather="activity"></i></div>
 	                            신간
-	                        	<div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 	                        </a>
 							<a class="nav-link collapsed" href="${contextPath}/main/main.do?id=3" >
-	                            <div class="nav-link-icon"><i data-feather="activity"></i></div>
 	                            스테디셀러
-	                        	<div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 	                        </a>
 						</div>
 					</div>
@@ -92,7 +96,5 @@
 		<div id="banner">
 			<a href="#"><img width="190" height="69" src="${contextPath}/resources/image/QnA_logo.jpg"></a>
 		</div>
-	</div>
-	</div>
 </body>
 </html>

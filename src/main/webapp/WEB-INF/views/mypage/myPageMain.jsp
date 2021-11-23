@@ -38,10 +38,16 @@
 </script>
 </head>
 <body>
-<h1>최근주문내역<a href="#"> <img src="${contextPath}/resources/image/btn_more_see.jpg"></a></h1>
-<table class="list_view">
+<div class="card card-header-actions">
+    <div class="card-header">
+        최근주문내역
+        <button class="btn btn-primary btn-sm" onclick="location.href = '${contextPath}/mypage/listMyOrderHistory.do'">더보기</button>
+    </div>
+    <div class="card-body">
+     <div class="datatable">
+         <table class="table table-bordered table-hover">
 	<tbody align=center >
-		<tr style="background:#33ff00" >
+		<tr>
 			<td>주문번호</td>
 			<td>주문일자</td>
 			<td>주문상품</td>
@@ -73,7 +79,7 @@
 	            </c:choose> 
             <tr>
              <td>
-		       <a href="${contextPath}/mypage/myOrderDetail.do?orderId=${item.orderId }"><span>${item.orderId }</span>  </a>
+		       <a href="${contextPath}/mypage/myOrderDetail.do?orderId=${item.orderId }"><span>${item.orderId }</span></a>
 		     </td>
 		    <td><fmt:formatDate value="${item.payOrderTime }" pattern="yyyy-MM-dd"/></td>
 			<td align="left">
@@ -106,10 +112,10 @@
 			<td>
 			  <c:choose>
 			   <c:when test="${item.deliveryState == 'deliveryPrepared'}">
-			       <input  type="button" onClick="fn_cancel_order('${item.orderId}')" value="주문취소"  />
+			   	<button class="btn btn-success btn-sm" onClick="fn_cancel_order('${item.orderId}')">주문취소</button>
 			   </c:when>
 			   <c:otherwise>
-			      <input  type="button" onClick="fn_cancel_order('${item.orderId}')" value="주문취소" disabled />
+			      <button class="btn btn-success btn-sm" onClick="fn_cancel_order('${item.orderId}')" disabled>주문취소</button>
 			   </c:otherwise>
 			  </c:choose>
 			</td>
@@ -122,27 +128,36 @@
     </c:choose> 	    
 </tbody>
 </table>
-
-<br><br><br>	
-<h1>나의 정보
-    <a href="#"> <img src="${contextPath}/resources/image/btn_more_see.jpg" /></a>
-</h1>
-<table style="border: 0; width: 100%;">
-  <tr>
-    <td>이메일:</td>
-    <td><strong>${memberInfo.email1 }@${memberInfo.email2 }</strong></td>
-   </tr>
-   <tr>
-    <td>전화번호 </td>
-    <td><strong>${memberInfo.hp1 }-${memberInfo.hp2}-${memberInfo.hp3 }</strong></td>
-   </tr>
-   <tr>
-    <td>주소 </td>
-    <td>
-		도로명:  &nbsp;&nbsp; <strong>${memberInfo.roadAddress }</strong>  <br>
-		지번:   &nbsp;&nbsp; <strong>${memberInfo.jibunAddress }</strong> 
-   </td>
-   </tr>
-</table>
+    </div>
+    </div>
+</div>
+<br>
+<div class="card card-header-actions">
+    <div class="card-header">
+		나의 정보
+        <button class="btn btn-primary btn-sm" onclick="location.href = '${contextPath}/mypage/myDetailInfo.do'">더보기</button>
+    </div>
+    <div class="card-body">
+    <div class="datatable">
+		<table class="table table-bordered table-hover">
+		  <tr>
+		    <td>이메일</td>
+		    <td><strong>${memberInfo.email1 }@${memberInfo.email2 }</strong></td>
+		   </tr>
+		   <tr>
+		    <td>전화번호</td>
+		    <td><strong>${memberInfo.hp1 }-${memberInfo.hp2}-${memberInfo.hp3 }</strong></td>
+		   </tr>
+		   <tr>
+		    <td>주소</td>
+		    <td>
+				도로명:  &nbsp;&nbsp; <strong>${memberInfo.roadAddress }</strong>  <br>
+				지번:   &nbsp;&nbsp; <strong>${memberInfo.jibunAddress }</strong> 
+		   </td>
+		   </tr>
+		</table>
+		</div>
+    </div>
+</div>
 </body>
 </html>
