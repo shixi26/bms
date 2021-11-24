@@ -178,7 +178,7 @@
 					</c:choose>
 				</c:forEach>
 				</select> 년 
-				<select class="form-control" name="memberBirthM" style="display:inline; width:50px; padding:0" required>
+				<select class="form-control" name="memberBirthM" style="display:inline; width:50px; padding:0">
 				  <c:forEach var="month" begin="1" end="12">
 				    <c:choose>
 				        <c:when test="${month==5}">
@@ -190,7 +190,7 @@
 					</c:choose>
 				  </c:forEach>
 				</select> 월  
-				<select class="form-control" name="memberBirthD" style="display:inline; width:50px; padding:0" required>
+				<select class="form-control" name="memberBirthD" style="display:inline; width:50px; padding:0">
 				<c:forEach var="day" begin="1" end="31">
 				   <c:choose>
 					    <c:when test="${day==10}">
@@ -255,8 +255,8 @@
 					<option value="018">018</option>
 					<option value="019">019</option>
 				</select> - 
-				<input class="form-control"  size="10px"  type="text" name="hp2" style="display:inline; width:100px; padding:0" required> - 
-				<input class="form-control"  size="10px"  type="text"name="hp3" style="display:inline; width:100px; padding:0"required><br><br>
+				<input class="form-control"  size="10px"  type="text" name="hp2" style="display:inline; width:100px; padding:0"> - 
+				<input class="form-control"  size="10px"  type="text"name="hp3" style="display:inline; width:100px; padding:0"><br><br>
 				<div class="custom-control custom-control-solid custom-checkbox">
 					<input class="custom-control-input small" id="smsstsYn" type="checkbox" name="smsstsYn"  value="Y" checked/>
                 	<label class="custom-control-label mr-3" for="smsstsYn" >BMS에서 발송하는 SMS 소식을 수신합니다.</label>
@@ -268,8 +268,8 @@
 	        	<label class="small mb-1" for="email1">이메일</label>
 	        </td>
 	        <td>
-	        	<input class="form-control"  size="10px"  type="text" id="email1" name="email1" style="display:inline; width:100px; padding:0"> @ 
-					<input class="form-control"  size="10px"  type="text" id="email2" name="email2" style="display:inline; width:100px; padding:0">
+	        	<input class="form-control"  size="10px"  type="text" id="email1" name="email1" style="display:inline; width:100px; padding:0"required> @ 
+					<input class="form-control"  size="10px"  type="text" id="email2" name="email2" style="display:inline; width:100px; padding:0"required>
 					<select class="form-control" id="select_email" name="email3" style="display:inline; width:100px; padding:0">
 						 <option value="none" selected>직접입력</option>
 						 <option value="gmail.com">gmail.com</option>

@@ -52,7 +52,7 @@ public class MemberController {
 	}
 
 	
-	
+	// 로그아웃 화면
 	@RequestMapping(value="/logout.do" , method = RequestMethod.GET)
 	public ModelAndView logout(HttpServletRequest request) throws Exception {
 		
@@ -68,7 +68,7 @@ public class MemberController {
 	
 	}
 	
-	
+	// 회원가입
 	@RequestMapping(value="/addMember.do" , method = RequestMethod.POST)
 	public ResponseEntity<String> addMember(MemberDto memberDto , HttpServletRequest request) throws Exception {
 		
@@ -98,20 +98,23 @@ public class MemberController {
 		return new ResponseEntity<String>(memberService.overlapped(id), HttpStatus.OK);
 	}
 
+	// 로그인화면
 	@RequestMapping(value="/loginForm.do" , method = RequestMethod.GET)
 	public ModelAndView loginForm() throws Exception {
 		return new ModelAndView("/member/loginForm");
 	}
 
+	//회원가입화면
 	@RequestMapping(value="/memberForm.do" , method = RequestMethod.GET)
 	public ModelAndView memberForm() throws Exception {
 		return new ModelAndView("/member/memberForm");
 	}
 	
-	// 비밀번호 찾기 폼
-	@RequestMapping(value="/findPwForm.do")
-	public String findPwForm() throws Exception{
-		return "member/findPwForm";
+	// 비밀번호 찾기
+	@RequestMapping(value="/findPwForm.do" , method = RequestMethod.GET)
+	public ModelAndView findPwForm() throws Exception {
+		return new ModelAndView("/member/findPwForm");
+		
 	}
 
 
