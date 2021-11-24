@@ -8,8 +8,6 @@
 	<!-- bootstrap css -->
 	<link href="${contextPath }/resources/css/styles.css" rel="stylesheet" type="text/css"/>
 	<link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
-	<script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
 	
 	<!-- 로그인정보일치확인 -->
 	<c:if test='${invalidMember eq true}'>
@@ -17,16 +15,17 @@
 			$().ready(function(){
 				alert("아이디와 비밀번호를 확인하세요.");
 			});
+			
+			})
 		</script>
 	</c:if>
 </head>
-<body>
+<body class="bg-primary">
 	<div id="layoutAuthentication">
     	<div id="layoutAuthentication_content">
         	<main>
                 <div class="container">
-                	<div class="row justify-content-center">
-                         <div>
+                	<div>
                          <!-- Social login form-->
                                 <div class="card my-5">
                                     <div class="card-body p-5 text-center">
@@ -54,7 +53,7 @@
                                                 <input class="form-control form-control-solid" id="memberPw" name="memberPw" type="password" placeholder="비밀번호를입력하세요." />
                                             </div>
                                             <!-- Form Group (비밀번호찾기)-->
-                                            <div class="form-group"><a class="small" href="auth-password-social.html">비밀번호찾기</a></div>
+                                            <div class="form-group"><a class="small" href="${contextPath }/member/findPwForm.do">비밀번호찾기</a></div>
                                             <!-- Form Group (login box)-->
                                             <div class="form-group d-flex align-items-center justify-content-between mb-0">
                                                 <div class="custom-control custom-control-solid custom-checkbox">
@@ -75,27 +74,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </main>
-            </div>
-            <div id="layoutAuthentication_footer">
-                <footer class="footer mt-auto footer-dark">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6 small">Copyright &copy; Your Website 2021</div>
-                            <div class="col-md-6 text-md-right small">
-                                <a href="#!">Privacy Policy</a>
-                                &middot;
-                                <a href="#!">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"/>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"/>
-        <script src="js/scripts.js"/>
+              </div>
+         </div>
     </body>	
-
 </html>

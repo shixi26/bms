@@ -50,4 +50,7 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.selectOverlappedID(id);
 	}
 	
+
+	
+	
 }

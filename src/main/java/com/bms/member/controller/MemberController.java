@@ -107,6 +107,12 @@ public class MemberController {
 	public ModelAndView memberForm() throws Exception {
 		return new ModelAndView("/member/memberForm");
 	}
+	
+	// 비밀번호 찾기 폼
+	@RequestMapping(value="/findPwForm.do")
+	public String findPwForm() throws Exception{
+		return "member/findPwForm";
+	}
 
 
 }
