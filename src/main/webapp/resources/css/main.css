@@ -270,7 +270,12 @@ article h4 {
 	margin: 10px 0px 0px;
 }
 #goods_image {
-	float: left;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    float: left;
+    height: 300px;
+    width: 350px;
 }
 #goods_image figure {
 	padding: 0px 30px 0px 0px; width: auto; text-align: center;
@@ -279,7 +284,7 @@ article h4 {
 	border: 1px solid rgb(255, 255, 255); border-image: none; width: 150px; height: auto; box-shadow: 2px 2px 25px #666;
 }
 #detail_table {
-	width: 590px; font-size: 0.75em; float: left;
+	width: 390px; font-size: 0.75em; float: right;
 }
 #detail_table table {
 	width: 95%; border-top-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51); border-top-width: 2px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; border-collapse: collapse;
@@ -309,7 +314,7 @@ article h4 {
 	list-style: none; margin: 20px 0px 0px;
 }
 #detail_table ul li {
-	padding: 0px 10px; float: left;
+	padding: 0px 10px; float: right;
 }
 #detail_table ul li a {
 	border-radius: 5px; border: 2px solid rgb(153, 153, 153); border-image: none; width: 150px; height: 25px; text-align: center; padding-top: 7px; font-family: "Helvetica"; font-size: 1.2em; font-weight: bold; display: block;

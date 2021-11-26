@@ -95,7 +95,7 @@
 			<img alt="HTML5 &amp; CSS3" src="${contextPath}/thumbnails.do?goodsId=${goods.goodsId}&fileName=${goods.goodsFileName}">
 		</figure>
 	</div>
-	<div id="detail_table">
+	<div id="detail_table" style="float: right; width: 350px;">
 		<table>
 			<tbody>
 				<tr>
