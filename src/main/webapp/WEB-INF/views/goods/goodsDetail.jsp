@@ -86,8 +86,8 @@
 </head>
 <body>
 
-	<h1>컴퓨터와 인터넷</h1>
-	<h2>국내외 도서 &gt; 컴퓨터와 인터넷 &gt; 웹 개발</h2>
+	<h1>${goods.goodsStatus }</h1>
+	<h2>${goods.goodsStatus } &gt; ${goods.goodsSort }</h2>
 	<h3>${goods.goodsTitle }</h3>
 	<h4>${goods.goodsWriter} &nbsp; 저| ${goods.goodsPublisher}</h4>
 	<div id="goods_image">
