@@ -149,5 +149,6 @@ public class GoodsDto {
 	public void setGoodsCredate(Date goodsCredate) {
 		this.goodsCredate = goodsCredate;
 	}
+
 	
 }

@@ -6,6 +6,12 @@
 <html>
 <head>
 <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+    	#pagingArea{width:fit-content;margin:auto;}
+    </style>
 <script>
 
 	function search_member_list(fixedSearchPeriod){
@@ -269,8 +275,9 @@
 		<div class="clear"></div>
 	</form>	
 	<div align="right">
-		<input type="button" class="btn btn-Light btn-sm" value="Excel Export" onclick="location.href='${contextPath}/admin/goods/goodsExcelExport.do'" />
+		<button type="button" onclick="fnExcelReport('table','title');">엑셀다운</button>
 	</div>
+	<!-- 리스트영역 -->
 	<table class="list_view">
 		<tbody align="center">
 			<tr style="background:#8e00ff; color:#fff; height: 50px;">
@@ -291,7 +298,7 @@
 			 	<c:otherwise>
      				<c:forEach var="goods" items="${newGoodsList}">
 						<tr>       
-							<td><strong>${goods.goodsId}</strong></td>
+							<td><strong>${goods.goodsId} </strong></td>
 							<td>
 								<a href="${contextPath}/admin/goods/modifyGoodsForm.do?goodsId=${goods.goodsId}">
 								    <strong>${goods.goodsTitle} </strong>
@@ -308,6 +315,42 @@
   			</c:choose>	        
 		</tbody>
 	</table>
+	<br>
+	
+	<!-- 페이징 -->
+        <div id="pagingArea">
+            <ul class="pagination">
+               
+            <c:choose>
+                  <c:when test="${ pi.currentPage eq 1 }">
+                     <li class="page-item disabled"><a class="page-link" href="#"></a></li>
+                  </c:when>
+                  <c:otherwise>
+                     <li class="page-item"><a class="page-link" href="adminGoodsMain.do?currentPage=${ pi.currentPage-1 }"> << </a></li>
+                  </c:otherwise>
+            </c:choose>
+               
+               <c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
+                  <li class="page-item"><a class="page-link" href="adminGoodsMain.do?currentPage=${ p }">${ p }</a></li>
+               </c:forEach>
+               
+               
+               <c:choose>
+                   <c:when test="${ pi.currentPage eq pi.maxPage }">
+                           <li class="page-item disabled" style="display:none;"><a class="page-link" href="#"></a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item"><a class="page-link" href="adminGoodsMain.do?currentPage=${ pi.currentPage+1 }"> >> </a></li>
+                  </c:otherwise>
+            </c:choose>
+               
+           </ul>
+       </div>
+	
+	
+	
+	
+	
 	<br>
 	<div align="right">
 		<input class="btn btn-indigo btn-sm" type="button" onclick="location.href='${contextPath}/admin/goods/addNewGoodsForm.do'" value="상품 등록">

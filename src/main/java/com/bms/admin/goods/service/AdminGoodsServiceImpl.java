@@ -5,12 +5,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bms.admin.goods.dao.AdminGoodsDao;
+import com.bms.common.page.PageInfo;
 import com.bms.goods.dto.GoodsDto;
 import com.bms.goods.dto.ImageFileDto;
 
@@ -19,6 +23,8 @@ import com.bms.goods.dto.ImageFileDto;
 @Transactional(propagation=Propagation.REQUIRED)
 public class AdminGoodsServiceImpl implements AdminGoodsService {
 	
+	@Autowired
+	private SqlSessionTemplate sqlSession;
 	@Autowired
 	private AdminGoodsDao adminGoodsDao;
 	
@@ -40,11 +46,19 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 		
 	}
 	
-	
-	@Override
-	public List<GoodsDto> listNewGoods(Map<String,Object> condMap) throws Exception{
-		return adminGoodsDao.selectNewGoodsList(condMap);
+	//BOARD
+	public int selectListCount() throws Exception {
+		return adminGoodsDao.selectListCount(sqlSession);
 	}
+	@Override
+	public List<GoodsDto> listNewGoods(Map<String,Object> condMap, PageInfo pi) throws Exception{
+		return adminGoodsDao.selectNewGoodsList(sqlSession, condMap, pi);
+	}
+	
+//	public List<GoodsDto> listNewGoods(Map<String, Object> condMap) throws Exception {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 	
 	
 	@Override
@@ -89,5 +103,6 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	public void addNewGoodsImage(List<ImageFileDto> imageFileList) throws Exception{
 		adminGoodsDao.insertGoodsImageFile(imageFileList);
 	}
+
 	
 }

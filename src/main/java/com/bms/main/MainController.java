@@ -39,8 +39,9 @@ public class MainController {
 		mv.setViewName("/main/main");
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("sideMenu", "user");
+		session.setAttribute("sideMenu", "user"); // setAttribute("속성이름","속성값")
 		
+		// Map
 		List<Map<String, Object>> bestseller   = goodsService.listGoods("bestseller");
 		List<Map<String, Object>> newbook      = goodsService.listGoods("newbook");
 		List<Map<String, Object>> steadyseller = goodsService.listGoods("steadyseller");

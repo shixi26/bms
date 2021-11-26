@@ -97,27 +97,7 @@
 	           GOODS_PUBLISHED_DATE
 	    FROM 
 			   T_SHOPPING_GOODS 
-        <where> 
-           		TO_CHAR(GOODS_CREDATE,'YYYY-MM-DD') BETWEEN #{beginDate} AND #{endDate} 
-           		<if test='searchType == "all"'>
-       				AND (GOODS_ID 			LIKE '%'|| #{searchWord} || '%'
-       				OR  GOODS_TITLE 		LIKE '%'|| #{searchWord} || '%'
-       				OR  GOODS_WRITER 		LIKE '%'|| #{searchWord} || '%'
-       				OR  GOODS_PUBLISHER 	LIKE '%'|| #{searchWord} || '%')
-     			</if>
-           		<if test='searchType == "goodsId"'>
-       				AND GOODS_ID LIKE '%'|| #{searchWord} || '%'
-     			</if>
-           		<if test='searchType == "goodsTitle"'>
-       				AND GOODS_TITLE LIKE '%'|| #{searchWord} || '%'
-     			</if>			            		
-           		<if test='searchType == "goodsWriter"'>
-       				AND GOODS_WRITER LIKE '%'|| #{searchWord} || '%'
-     			</if>			            		
-           		<if test='searchType == "goodsPublisher"'>
-       				AND GOODS_PUBLISHER LIKE '%'|| #{searchWord} || '%'
-     			</if>
-     	</where>			            		
+        		
         ORDER BY 
           			GOODS_CREDATE DESC
 	</select>
@@ -145,6 +125,15 @@
 		<result column="GOODS_CREDATE" 		 		property="goodsCredate" />
 		<result column="FILE_NAME" 			 		property="goodsFileName" />
 	</resultMap>
+	
+	<!-- 총개수 -->
+	<select id="selectListCount" resultType="_int">
+		SELECT
+				COUNT(*)
+		FROM 
+				T_SHOPPING_GOODS
+				
+	</select>
 	
 		
 	<select id="selectGoodsDetail" resultMap="adminGoodsMap" parameterType="int" >
@@ -273,5 +262,7 @@
 	  WHERE 
 	  			IMAGE_ID = #{imageId}
 	</delete>
+	
+	
 		
 </mapper>

@@ -1,15 +1,19 @@
 package com.bms.admin.goods.dao;
 
+import java.util.ArrayList;			
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.bms.goods.dto.GoodsDto;
 import com.bms.goods.dto.ImageFileDto;
+import com.bms.common.page.PageInfo;
 
 @Repository
 public class AdminGoodsDaoImpl  implements AdminGoodsDao{
@@ -36,8 +40,20 @@ public class AdminGoodsDaoImpl  implements AdminGoodsDao{
 	}
 		
 	@Override
-	public List<GoodsDto> selectNewGoodsList(Map<String,Object> condMap) throws DataAccessException {
-		return sqlSession.selectList("mapper.admin.goods.selectNewGoodsList" , condMap);
+	public int selectListCount(SqlSessionTemplate sqlSession) {
+		return sqlSession.selectOne("mapper.admin.goods.selectListCount");
+	}
+	
+	@Override
+	public List<GoodsDto> selectNewGoodsList(SqlSessionTemplate sqlSession, Map<String,Object> condMap, PageInfo pi) throws DataAccessException {
+		
+		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
+		int limit = pi.getBoardLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, limit);
+		
+		//return sqlSession.selectList("mapper.admin.goods.selectNewGoodsList", null, condMap);
+		return sqlSession.selectList("mapper.admin.goods.selectNewGoodsList", null, rowBounds);
 	}
 	
 	@Override
@@ -80,7 +96,8 @@ public class AdminGoodsDaoImpl  implements AdminGoodsDao{
 		}
 		
 	}
-
 	
+	
+
 
 }
