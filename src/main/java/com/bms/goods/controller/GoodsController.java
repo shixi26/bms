@@ -39,6 +39,9 @@ public class GoodsController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/goods/searchGoods");
 		mv.addObject("goodsList", goodsService.searchGoods(searchWord));
+		//newbooklist객체 추가
+		mv.addObject("newBookList", goodsService.listNewBook());
+		
 		
 		return mv;
 		

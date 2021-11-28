@@ -20,6 +20,10 @@ public class GoodsDaoImpl implements GoodsDao{
 	public List<Map<String,Object>> selectGoodsList(String goodsStatus) throws DataAccessException {
 	   return sqlSession.selectList("mapper.goods.selectGoodsList" , goodsStatus);	
 	}
+	@Override
+	public List<Map<String,Object>> selectNewBookList(String goodsStatus) throws DataAccessException {
+		return sqlSession.selectList("mapper.goods.selectGoodsList" , goodsStatus);	
+	}
 	
 	@Override
 	public List<String> selectKeywordSearch(String keyword) throws DataAccessException {
@@ -39,6 +43,10 @@ public class GoodsDaoImpl implements GoodsDao{
 	@Override
 	public List<ImageFileDto> selectGoodsDetailImage(String goodsId) throws DataAccessException{
 		return sqlSession.selectList("mapper.goods.selectGoodsDetailImage" , goodsId);
+	}
+	@Override
+	public List<Map<String, Object>> selectNewbookList() throws DataAccessException {
+		return sqlSession.selectList("mapper.goods.selectNewBookList");	
 	}
 	
 }

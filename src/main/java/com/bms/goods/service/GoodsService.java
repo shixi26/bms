@@ -8,6 +8,7 @@ import com.bms.goods.dto.GoodsDto;
 public interface GoodsService {
 	
 	public List<Map<String,Object>> listGoods(String goodsStatus) throws Exception;
+	public List<Map<String,Object>> listNewBook() throws Exception;
 	public Map<String,Object> goodsDetail(String goodsId) throws Exception;
 	public List<String> keywordSearch(String keyword) throws Exception;
 	public List<Map<String, Object>> searchGoods(String searchWord) throws Exception;

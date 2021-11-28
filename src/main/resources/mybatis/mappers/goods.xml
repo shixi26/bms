@@ -60,6 +60,26 @@
           			G.GOODS_CREDATE DESC
 
 	</select>
+
+     <select id="selectNewBookList" resultMap="goodsMap">
+		SELECT 
+	   		   GOODS_ID,
+	           GOODS_TITLE,
+	           GOODS_WRITER,
+	           GOODS_PUBLISHER,
+	           GOODS_PRICE,
+	           GOODS_SALES_PRICE,
+	           GOODS_CREDATE,
+	           GOODS_PUBLISHED_DATE
+	    FROM 
+			   T_SHOPPING_GOODS 
+		WHERE  	1 = 1
+		AND		GOODS_STATUS = 'newbook'
+        		
+        ORDER BY 
+          		GOODS_CREDATE DESC
+
+	</select>
 	
 	<select id="selectGoodsDetail" parameterType="String" resultMap="goodsMap">
 	    SELECT 

@@ -19,7 +19,7 @@
 		<div id="carousel_inner">
 			<ul id="carousel_ul">
 			<c:choose>
-			   <c:when test="${empty goodsList}" >
+			   <c:when test="${empty newBookList}" >
 			     <li>
 					<div id="book">
 						<h1>제품이없습니다.</h1>
@@ -27,7 +27,7 @@
 				</li> 
 			   </c:when>
 			   <c:otherwise>
-			    <c:forEach var="goods" items="${goodsList}" >
+			    <c:forEach var="goods" items="${newBookList}" >
 			     <li>
 					<div id="book">
 						<a href="${contextPath}/goods/goodsDetail.do?goodsId=${goods.goodsId}">
@@ -41,9 +41,11 @@
 						</div>
 						<div class="writer">${goods.goodsWriter} | ${goods.goodsPublisher}</div>
 						<div class="price">
-							<span><fmt:formatNumber value="${goods.goodsPrice}" type="number" /></span> <br>
-							<fmt:formatNumber value="${goods.goodsSalesPrice}" type="number"  />
-				            (<fmt:formatNumber value="${(goods.goodsPrice - goods.goodsSalesPrice) / goods.goodsPrice * 10}"/>%할인)
+							<fmt:formatNumber var="p1" value="${goods.goodsPrice}" type="number" pattern="#.##" />
+					<fmt:formatNumber var="p2" value="${goods.goodsSalesPrice}" type="number"  pattern="#.##" />
+					<span><fmt:formatNumber value="${p1}" type="number"/></span> <br>
+					<fmt:formatNumber value="${p2}" type="number"/><br>
+		            (<fmt:formatNumber value="${(p1 - p2 + 0.0) / (p1 + 0.0)}" type="percent"/>할인)
 						</div>
 					</div>
 				</li>
@@ -77,9 +79,11 @@
 					</div>
 				</td>
 				<td class="price">
-					<span><fmt:formatNumber  value="${goods.goodsPrice}" type="number" /></span> <br>
-					<fmt:formatNumber value="${goods.goodsSalesPrice}" type="number"  /><br>
-		            (<fmt:formatNumber value="${(goods.goodsPrice - goods.goodsSalesPrice) / goods.goodsPrice * 10}"/>%할인)
+					<fmt:formatNumber var="p1" value="${goods.goodsPrice}" type="number" pattern="#.##" />
+					<fmt:formatNumber var="p2" value="${goods.goodsSalesPrice}" type="number"  pattern="#.##" />
+					<span><fmt:formatNumber value="${p1}" type="number"/></span> <br>
+					<fmt:formatNumber value="${p2}" type="number"/><br>
+		            (<fmt:formatNumber value="${(p1 - p2 + 0.0) / (p1 + 0.0)}" type="percent"/>할인)
 				</td>
 			</tr>
 			</c:forEach>

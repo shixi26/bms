@@ -36,6 +36,10 @@ public class GoodsServiceImpl implements GoodsService{
 		
 	}
 	
+	public List<Map<String, Object>> listNewBook() throws Exception {
+		return goodsDao.selectNewbookList();
+		
+	}
 	
 	public List<String> keywordSearch(String keyword) throws Exception {
 		return goodsDao.selectKeywordSearch(keyword);
@@ -45,6 +49,7 @@ public class GoodsServiceImpl implements GoodsService{
 	public List<Map<String, Object>> searchGoods(String searchWord) throws Exception{
 		return goodsDao.selectGoodsBySearchWord(searchWord);
 	}
+	
 	
 	
 }
