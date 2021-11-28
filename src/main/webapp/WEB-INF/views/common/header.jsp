@@ -36,12 +36,10 @@
 			    <c:when test="${isLogOn == true and not empty memberInfo }">
 				   <li><a href="${contextPath}/member/logout.do">로그아웃</a></li>
 				   <li><a href="${contextPath}/mypage/myPageMain.do">마이페이지</a></li>
-				   <li><a href="${contextPath}/cscenter/csCenterMain.do">고객센터</a></li> 
 				</c:when>
 				<c:otherwise>
 				   <li><a href="${contextPath}/member/loginForm.do">로그인</a></li>
 				   <li><a href="${contextPath}/member/memberForm.do">회원가입</a></li> 
-				   <li><a href="${contextPath}/cscenter/csCenterMain.do">고객센터</a></li> 
 				</c:otherwise>
 				</c:choose>
 				</ul>

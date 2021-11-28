@@ -8,7 +8,7 @@
 </head>
 <body>
 	<hgroup>
-		<h1>컴퓨터와 인터넷</h1>
+		<h1>${goods.goodsSort }</h1>
 		<h2>오늘의 책</h2>
 	</hgroup>
 	<section id="new_book">
@@ -34,7 +34,7 @@
 							<img width="75" src="${contextPath}/thumbnails.do?goodsId=${goods.goodsId}&fileName=${goods.goodsFileName}" alt="상품명">
 						</a>
 						<div class="sort">
-							[컴퓨터 인터넷]
+							${goods.goodsSort }
 						</div>
 						<div class="title">
 							<a href="${contextPath}/goods/goodsDetail.do?goodsId=${goods.goodsId}"> ${goods.goodsTitle}</a>
