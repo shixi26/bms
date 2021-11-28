@@ -5,20 +5,22 @@
     <head>
     <!-- bootstrap css적용 -->
     	<meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <link href="${contextPath }/resources/css/styles.css" rel="stylesheet" type="text/css"/>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+    	<link href="${contextPath }/resources/css/stylesCustom.css" rel="stylesheet">
     </head>
     
 	<body>
 		<nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
-			<a class="navbar-brand" href="${contextPath}/main/main.do">Book Management System</a>
+			<c:choose>
+			<c:when test="${isLogOn == true and memberInfo.memberId == 'admin' }">
+				<a class="navbar-brand" href="${contextPath}/main/main.do">Book Management System</a>							
+			</c:when>
+			<c:otherwise>
+				<a class="navbar-brand" href="${contextPath}/main/main.do"><img src="${contextPath}/resources/image/hao_logo1.png"></a>							
+			</c:otherwise>
+			</c:choose>
 			<!-- 검색기능 -->
 			<form class="form-inline mr-auto d-none d-md-block mr-3" name="frmSearch" action="${contextPath}/goods/searchGoods.do" >
-                <div class="input-group input-group-joined input-group-solid">
+                <div class="input-group input-group-joined input-group-solid" style='width:400px;'>
                     <input name="searchWord" class="form-control mr-sm-2" type="text" placeholder="Search"  />
 					<input type="submit" name="search" class="btn btn-sm btn-primary" value="검 색" >
                 </div>
@@ -34,10 +36,12 @@
 			    <c:when test="${isLogOn == true and not empty memberInfo }">
 				   <li><a href="${contextPath}/member/logout.do">로그아웃</a></li>
 				   <li><a href="${contextPath}/mypage/myPageMain.do">마이페이지</a></li>
+				   <li><a href="${contextPath}/cscenter/csCenterMain.do">고객센터</a></li> 
 				</c:when>
 				<c:otherwise>
 				   <li><a href="${contextPath}/member/loginForm.do">로그인</a></li>
 				   <li><a href="${contextPath}/member/memberForm.do">회원가입</a></li> 
+				   <li><a href="${contextPath}/cscenter/csCenterMain.do">고객센터</a></li> 
 				</c:otherwise>
 				</c:choose>
 				</ul>

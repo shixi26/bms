@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+     
+    <definition name="/cscenter/csCenterMain" extends="baseLayout">
+       <put-attribute name="title" value="고객센터 메인" />
+       <put-attribute name="body" value="/WEB-INF/views/cscenter/csCenterMain.jsp" />
+    </definition>
+    
+    <definition name="/cscenter/notice" extends="baseLayout">
+       <put-attribute name="title" value="공지사항 페이지" />
+       <put-attribute name="body" value="/WEB-INF/views/cscenter/notice.jsp" />
+     </definition>
+     
+    <definition name="/cscenter/faq" extends="baseLayout">
+       <put-attribute name="title" value="FAQ 페이지" />
+       <put-attribute name="body" value="/WEB-INF/views/cscenter/faq.jsp" />
+     </definition>
+     
+</tiles-definitions>
+
+

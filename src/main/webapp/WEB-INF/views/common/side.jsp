@@ -10,10 +10,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <link href="${contextPath }/resources/css/styles.css" rel="stylesheet" type="text/css"/>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
-        <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
     </head>
 <body>
 	<nav class="sidenav shadow-right sidenav-light">
@@ -53,6 +49,23 @@
 						</div>
 					</div>
 			</c:when>
+			<c:when test="${sideMenu == 'csCenter'}">
+				<div class="sidenav-menu">
+					<div class="nav accordion" id="accordionSidenav">
+				       <!-- Sidenav Menu Heading (정보내역)-->
+	                   <div class="sidenav-menu-heading">고객센터</div>
+							<a class="nav-link collapsed" href="${contextPath}/cscenter/notice.do">
+	                            공지사항
+	                        </a>
+							<a class="nav-link collapsed" href="${contextPath}/cscenter/faq.do">
+	                            FAQ
+	                        </a>
+							<a class="nav-link collapsed" href="${contextPath}/main/main.do">
+	                            메인화면으로 이동
+	                        </a>
+						</div>
+					</div>
+			</c:when>
 			<c:otherwise>
 				<div class="sidenav-menu">
 					<div class="nav accordion" id="accordionSidenav">
@@ -70,6 +83,7 @@
 						</div>
 					</div>
 			 </c:otherwise>
+
 			</c:choose>	
 		  </ul>
 		</nav>

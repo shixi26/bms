@@ -114,8 +114,9 @@ public class MemberController {
 	@RequestMapping(value="/findPwForm.do" , method = RequestMethod.GET)
 	public ModelAndView findPwForm() throws Exception {
 		return new ModelAndView("/member/findPwForm");
-		
 	}
+	
+
 
 
 }
