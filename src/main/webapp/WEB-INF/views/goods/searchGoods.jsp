@@ -32,11 +32,13 @@
 						<c:forEach var="goods" items="${newBookList}">
 							<li>
 								<div id="book">
-									<a
-										href="${contextPath}/goods/goodsDetail.do?goodsId=${goods.goodsId}">
-										<img width="75" alt="${goods.goodsFileName}"
-										src="${contextPath}/thumbnails.do?goodsId=${goods.goodsId}&fileName=${goods.goodsFileName}">
-									</a>
+									<div>
+										<a
+											href="${contextPath}/goods/goodsDetail.do?goodsId=${goods.goodsId}">
+											<img width="75" alt="${goods.goodsFileName}"
+											src="${contextPath}/thumbnails.do?goodsId=${goods.goodsId}&fileName=${goods.goodsFileName}">
+										</a>
+									</div>
 									<div class="sort">${goods.goodsSort }</div>
 									<div class="title">
 										<a

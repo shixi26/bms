@@ -89,7 +89,7 @@ aside #banner {
 	list-style: none; margin: 10px 0px 0px;
 }
 #notice ul li {
-	background-position: left; padding: 0px 0px 0px 7px; line-height: 1.5em; 
+	background-position: left; padding: 0px 0px 0px 7px; line-height: 1.5em;
 }
 article {
 	margin: 20px 0px 0px 15px; width: 775px; float: right;
@@ -133,7 +133,7 @@ section#new_book #right_scroll {
 	width: 14px; padding-top: 70px; float: left;
 }
 section#new_book h3 {
-	background-position: left; margin: 0px 0px 5px; padding: 0px 0px 5px; height: 24px; text-indent: -7000px;
+	background-position: left; margin: 0px 0px 5px; padding: 0px 0px 5px; height: 24px; /*text-indent: -7000px;*/
 }
 section#new_book #book {
 	width: 135px; text-align: center; float: left;
@@ -379,13 +379,13 @@ ul.tabs li.active a:hover {
 	margin: 10px 0px; padding: 5px; color: rgb(0, 0, 0); font-size: 1.2em; font-weight: bold; border-bottom-color: rgb(255, 153, 0); border-bottom-width: 1px; border-bottom-style: solid;
 }
 footer {
-	background-position: top; margin: 10px 0px 0px; font-size: 0.75em; 
+	background-position: top; margin: 10px 0px 0px; font-size: 0.75em;
 }
 footer ul {
 	list-style: none; margin: 0px 0px 0px 210px;
 }
 footer ul li {
-	background-position: right; font-family: "Helvetica"; float: left; 
+	background-position: right; font-family: "Helvetica"; float: left;
 }
 footer ul li.no_line {
 	background-image: none;
@@ -399,7 +399,7 @@ footer img {
 #sticky {
 	/* padding: 10px 5px; border-radius: 10px; top: 115px; width: 82px; font-size: 0.75em; float: right; position: relative; background-color: rgb(153, 153, 153); */
 	padding: 10px 5px; border-radius: 10px; top: 115px; width: 82px; font-size: 0.75em; float: right; position: relative; background-color:#66cc00;
-	
+
 }
 #sticky ul {
 	list-style: none;
@@ -429,7 +429,7 @@ footer img {
 }
 
 .list_view tr {
-	margin: 0px; padding: 10px 0px; border-bottom-color: rgb(153, 153, 153); border-bottom-width: 1px; border-bottom-style: dotted; 
+	margin: 0px; padding: 10px 0px; border-bottom-color: rgb(153, 153, 153); border-bottom-width: 1px; border-bottom-style: dotted;
 }
 
   .list_view td {
@@ -528,7 +528,7 @@ footer img {
 	background-position: 15px; background-repeat: no-repeat;
 }
 .detail_table ul li a.buy {
-	border-color: rgb(255, 0, 0); color: rgb(255, 0, 0); 
+	border-color: rgb(255, 0, 0); color: rgb(255, 0, 0);
 }
 .detail_table ul li a.buy:hover {
 	color: rgb(0, 0, 0); background-color: rgb(255, 204, 0);
@@ -583,8 +583,8 @@ article h1_TITLE {
 	font-weight: bold;
 }
 #suggest{
-display:none; position: absolute; left: 830px; top:80px; border: 0.1px  solid #87cb42; z-index:3;font-weight: bold;background-color:#ffffff; 	
-	
+display:none; position: absolute; left: 830px; top:80px; border: 0.1px  solid #87cb42; z-index:3;font-weight: bold;background-color:#ffffff;
+
 }
 
 .show_row_line{
