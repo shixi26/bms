@@ -374,7 +374,7 @@
 
 			<!-- 페이지 번호 -->
 			<c:forEach var="p" begin="${pi.startPage}" end="${pi.endPage}">
-				<li class="page-item ${p == pi.currentPage ? 'active' : 'disabled'}"><a
+				<li class="page-item ${p == pi.currentPage ? 'active' : ''}"><a
 					class="page-link" href="adminGoodsMain.do?currentPage=${p}">
 						${p} </a></li>
 			</c:forEach>
