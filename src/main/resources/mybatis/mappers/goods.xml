@@ -28,7 +28,7 @@
 	</resultMap>
 
      <select id="selectGoodsList" parameterType="String" resultMap="goodsMap"   >
-		SELECT 
+		SELECT
    				G.GOODS_ID					AS GOODS_ID,
    				G.GOODS_TITLE				AS GOODS_TITLE,
    				G.GOODS_WRITER				AS GOODS_WRITER,
@@ -49,40 +49,40 @@
    				G.GOODS_PUBLISHER_COMMENT 	AS GOODS_PUBLISHER_COMMENT,
    				G.GOODS_RECOMMENDATION 		AS GOODS_RECOMMENDATION,
    				G.GOODS_CREDATE 			AS GOODS_CREDATE,
-   				D.FILE_NAME					AS FILE_NAME 
-   		FROM 
-   				T_SHOPPING_GOODS G 
+   				D.FILE_NAME					AS FILE_NAME
+   		FROM
+   				T_SHOPPING_GOODS G
    					  INNER JOIN T_GOODS_DETAIL_IMAGE D
-  							  ON G.GOODS_ID = D.GOODS_ID 
-  							 AND D.FILE_TYPE = 'main_image' 
+  							  ON G.GOODS_ID = D.GOODS_ID
+  							 AND D.FILE_TYPE = 'main_image'
   							 AND G.GOODS_STATUS = #{goodsStatus}
-       	ORDER BY 
+       	ORDER BY
           			G.GOODS_CREDATE DESC
 
 	</select>
 
      <select id="selectNewBookList" resultMap="goodsMap">
-		SELECT 
-	   		   GOODS_ID,
-	           GOODS_TITLE,
-	           GOODS_WRITER,
-	           GOODS_PUBLISHER,
-	           GOODS_PRICE,
-	           GOODS_SALES_PRICE,
-	           GOODS_CREDATE,
-	           GOODS_PUBLISHED_DATE
-	    FROM 
-			   T_SHOPPING_GOODS 
-		WHERE  	1 = 1
-		AND		GOODS_STATUS = 'newbook'
-        		
-        ORDER BY 
-          		GOODS_CREDATE DESC
+		SELECT
+	   		   G.GOODS_ID,
+	           G.GOODS_TITLE,
+	           G.GOODS_WRITER,
+	           G.GOODS_PUBLISHER,
+	           G.GOODS_PRICE,
+	           G.GOODS_SALES_PRICE,
+	           G.GOODS_CREDATE,
+	           G.GOODS_PUBLISHED_DATE,
+	           (SELECT FILE_NAME FROM T_GOODS_DETAIL_IMAGE I WHERE G.GOODS_ID = I.GOODS_ID) AS FILE_NAME
+	     FROM
+			   T_SHOPPING_GOODS G
+	    WHERE  1 = 1
+		  AND  G.GOODS_STATUS = 'newbook'
+     ORDER BY
+          	   GOODS_CREDATE DESC
 
 	</select>
-	
+
 	<select id="selectGoodsDetail" parameterType="String" resultMap="goodsMap">
-	    SELECT 
+	    SELECT
 	    		G.GOODS_ID					AS GOODS_ID,
    				G.GOODS_TITLE				AS GOODS_TITLE,
    				G.GOODS_WRITER				AS GOODS_WRITER,
@@ -103,28 +103,28 @@
    				G.GOODS_PUBLISHER_COMMENT 	AS GOODS_PUBLISHER_COMMENT,
    				G.GOODS_RECOMMENDATION 		AS GOODS_RECOMMENDATION,
    				G.GOODS_CREDATE 			AS GOODS_CREDATE,
-   				D.FILE_NAME					AS FILE_NAME 
-	    FROM 
-	    		T_SHOPPING_GOODS G 
+   				D.FILE_NAME					AS FILE_NAME
+	    FROM
+	    		T_SHOPPING_GOODS G
 	    		      INNER JOIN T_GOODS_DETAIL_IMAGE D
-        					  ON G.GOODS_ID = D.GOODS_ID 
+        					  ON G.GOODS_ID = D.GOODS_ID
         					 AND D.FILE_TYPE = 'main_image'
         					 AND G.GOODS_ID = #{goodsId}
-        ORDER BY 
+        ORDER BY
         		G.GOODS_ID
 	</select>
-	
+
 	<select id="selectGoodsDetailImage" parameterType="String"  resultType="ImageFileDto" >
-    	SELECT 
-				* 
-		FROM  
-				T_GOODS_DETAIL_IMAGE 
-		WHERE  
+    	SELECT
+				*
+		FROM
+				T_GOODS_DETAIL_IMAGE
+		WHERE
 				FILE_TYPE != 'main_image' AND GOODS_ID = #{goodsId}
 	</select>
-	
+
    <select id="selectGoodsBySearchWord" parameterType="String" resultMap="goodsMap" >
-		SELECT 
+		SELECT
 				G.GOODS_ID					AS GOODS_ID,
    				G.GOODS_TITLE				AS GOODS_TITLE,
    				G.GOODS_WRITER				AS GOODS_WRITER,
@@ -145,26 +145,26 @@
    				G.GOODS_PUBLISHER_COMMENT 	AS GOODS_PUBLISHER_COMMENT,
    				G.GOODS_RECOMMENDATION 		AS GOODS_RECOMMENDATION,
    				G.GOODS_CREDATE 			AS GOODS_CREDATE,
-   				D.FILE_NAME					AS FILE_NAME 
-		FROM 
+   				D.FILE_NAME					AS FILE_NAME
+		FROM
 				T_SHOPPING_GOODS G
 				      INNER JOIN T_GOODS_DETAIL_IMAGE D
 	    					  ON G.GOODS_ID = D.GOODS_ID
-	    					 AND D.FILE_TYPE = 'main_image' 
+	    					 AND D.FILE_TYPE = 'main_image'
 	    					 AND G.GOODS_TITLE LIKE '%'|| #{searchWord} || '%'
-	    ORDER BY 
+	    ORDER BY
 	    		G.GOODS_CREDATE DESC
-	</select>	
-	
+	</select>
+
 	<select id="selectKeywordSearch" parameterType="String" resultType="String" >
-       	SELECT 
-        		GOODS_TITLE 
-        FROM 
-        		T_SHOPPING_GOODS 
-        WHERE         
+       	SELECT
+        		GOODS_TITLE
+        FROM
+        		T_SHOPPING_GOODS
+        WHERE
         		GOODS_TITLE LIKE '%'|| #{keyword} || '%'
-        ORDER BY 
+        ORDER BY
         		GOODS_CREDATE DESC
 	</select>
-	
+
 </mapper>
